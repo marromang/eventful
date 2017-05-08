@@ -12,7 +12,7 @@ tipo = raw_input("Introduce un tipo de evento: ")
 payload = {'app_key':key, 'keywords': tipo, 'location':ciudad, 'date':'Future'}
 
 r= requests.get(url_base+'/events/search', params=payload)
-
+return r
 if r.status_code == 200:
 	doc = etree.fromstring(r.text.encode('utf-8'))
 	for e in doc.xpath("//title"):
